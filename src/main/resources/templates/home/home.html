@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/main_layout}">
+	<head>
+		<title>Home</title>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div layout:fragment="content" class="container mySpace">
+			<div sec:authorize="isAuthenticated()">
+				<h2>Hi <span th:utext="${userName}"></span>, this is the home page.</h2>
+				<a th:href="@{/logout}">Log out</a>
+			</div>
+			<div sec:authorize="isAnonymous()">
+				<h2>Hi, this is the home page.</h2>
+				<a th:href="@{/login}">Log in</a>
+			</div>
+			<hr />
+			<div style="text-align: center;">
+				<i>This website is a university project in BMSTU.</i>
+			</div>
+			<br />
+		</div>
+	</body>
+</html>
